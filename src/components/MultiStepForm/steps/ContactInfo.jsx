@@ -1,50 +1,53 @@
-import PropTypes from 'prop-types'
+import PropTypes from '../../../../$node_modules/@types/prop-types/index.js';
 
 const ContactInfo = ({ form }) => {
-  const { register, formState: { errors } } = form
+  const {
+    register,
+    formState: { errors },
+  } = form;
 
   return (
     <div>
-      <h2 className="text-3xl font-semibold mb-6">Kontaktinformationen</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <h2 className='text-3xl font-semibold mb-6'>Kontaktinformationen</h2>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         <div>
-          <label htmlFor="email" className="block text-lg font-medium">
+          <label htmlFor='email' className='block text-lg font-medium'>
             E-Mail
           </label>
           <input
             {...register('email')}
-            type="email"
-            id="email"
-            className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm 
+            type='email'
+            id='email'
+            className='mt-2 block w-full border border-gray-300 rounded-lg shadow-sm 
                      focus:ring-[#C6A866] focus:border-[#C6A866] text-lg p-3
-                     aria-invalid:border-red-500"
+                     aria-invalid:border-red-500'
             aria-invalid={!!errors.email}
           />
           {errors.email && (
-            <p className="mt-1 text-red-500">{errors.email.message}</p>
+            <p className='mt-1 text-red-500'>{errors.email.message}</p>
           )}
         </div>
         <div>
-          <label htmlFor="phone" className="block text-lg font-medium">
+          <label htmlFor='phone' className='block text-lg font-medium'>
             Telefonnummer
           </label>
           <input
             {...register('phone')}
-            type="tel"
-            id="phone"
-            className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm 
+            type='tel'
+            id='phone'
+            className='mt-2 block w-full border border-gray-300 rounded-lg shadow-sm 
                      focus:ring-[#C6A866] focus:border-[#C6A866] text-lg p-3
-                     aria-invalid:border-red-500"
+                     aria-invalid:border-red-500'
             aria-invalid={!!errors.phone}
           />
           {errors.phone && (
-            <p className="mt-1 text-red-500">{errors.phone.message}</p>
+            <p className='mt-1 text-red-500'>{errors.phone.message}</p>
           )}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 ContactInfo.propTypes = {
   form: PropTypes.shape({
@@ -52,14 +55,14 @@ ContactInfo.propTypes = {
     formState: PropTypes.shape({
       errors: PropTypes.shape({
         email: PropTypes.shape({
-          message: PropTypes.string
+          message: PropTypes.string,
         }),
         phone: PropTypes.shape({
-          message: PropTypes.string
-        })
-      })
-    }).isRequired
-  }).isRequired
-}
+          message: PropTypes.string,
+        }),
+      }),
+    }).isRequired,
+  }).isRequired,
+};
 
-export default ContactInfo 
+export default ContactInfo;

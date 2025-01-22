@@ -4,7 +4,7 @@ import CTA from './components/CTA';
 import AnimatedSection from './components/AnimatedSection';
 import Footer from './components/Footer';
 import GuideSection from './components/GuideSection';
-import { Toaster } from 'sonner';
+import { Toaster } from '../$node_modules/sonner/dist/index.js';
 
 function App() {
   return (

@@ -1,5 +1,8 @@
-import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import PropTypes from '../../../../$node_modules/@types/prop-types/index.js';
+import {
+  useEffect,
+  useState,
+} from '../../../../$node_modules/@types/react/index.js';
 
 const AddressData = ({ form }) => {
   const {

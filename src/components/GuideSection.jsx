@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import MultiStepForm from '@/components/MultiStepForm/MultiStepForm'
 import { Button } from "./ui/button"
-import { useState } from 'react'
+import { useState } from '../../$node_modules/@types/react/index.js';
 
 const GuideSection = () => {
   const [open, setOpen] = useState(false)

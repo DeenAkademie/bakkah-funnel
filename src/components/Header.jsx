@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState } from '../../$node_modules/@types/react/index.js';
+import { Menu, X } from '../../$node_modules/lucide-react/dist/lucide-react.js';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,

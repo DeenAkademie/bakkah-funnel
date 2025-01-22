@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from '../../../../$node_modules/@types/prop-types/index.js';
 
 const PersonalData = ({ form }) => {
   const {

@@ -1,58 +1,65 @@
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
-import { toast } from 'sonner'
-import PersonalData from './steps/PersonalData'
-import ContactInfo from './steps/ContactInfo'
-import AddressData from './steps/AddressData'
-import TravelType from './steps/TravelType'
-import Completion from './steps/Completion'
-import ProgressBar from './ProgressBar'
-import PropTypes from 'prop-types'
+import { useState } from '../../../$node_modules/@types/react/index.js';
+import { useForm } from '../../../$node_modules/react-hook-form/dist/index.js';
+import { zodResolver } from '../../../$node_modules/@hookform/resolvers/zod/dist/index.js';
+import * as z from '../../../$node_modules/zod/index.js';
+import { toast } from '../../../$node_modules/sonner/dist/index.js';
+import PersonalData from './steps/PersonalData';
+import ContactInfo from './steps/ContactInfo';
+import AddressData from './steps/AddressData';
+import TravelType from './steps/TravelType';
+import Completion from './steps/Completion';
+import ProgressBar from './ProgressBar';
+import PropTypes from '../../../$node_modules/@types/prop-types/index.js';
 
 const formSchema = z.object({
-  firstname: z.string()
+  firstname: z
+    .string()
     .min(2, 'Vorname muss mindestens 2 Zeichen lang sein')
     .nonempty('Vorname ist erforderlich'),
-  lastname: z.string()
+  lastname: z
+    .string()
     .min(2, 'Nachname muss mindestens 2 Zeichen lang sein')
     .nonempty('Nachname ist erforderlich'),
-  email: z.string()
+  email: z
+    .string()
     .email('Ungültige Email-Adresse')
     .nonempty('Email ist erforderlich'),
-  phone: z.string()
+  phone: z
+    .string()
     .min(6, 'Ungültige Telefonnummer')
     .nonempty('Telefonnummer ist erforderlich'),
-  street: z.string()
+  street: z
+    .string()
     .min(2, 'Straße ist erforderlich')
     .nonempty('Straße ist erforderlich'),
-  postcode: z.string()
+  postcode: z
+    .string()
     .min(4, 'Ungültige Postleitzahl')
     .nonempty('Postleitzahl ist erforderlich'),
-  city: z.string()
+  city: z
+    .string()
     .min(2, 'Stadt ist erforderlich')
     .nonempty('Stadt ist erforderlich'),
-  land: z.string()
-    .nonempty('Land ist erforderlich'),
+  land: z.string().nonempty('Land ist erforderlich'),
   reiseart: z.enum(['Umra', 'Hadsch'], {
-    required_error: 'Bitte wählen Sie eine Reiseart'
+    required_error: 'Bitte wählen Sie eine Reiseart',
   }),
-  agb: z.boolean()
-    .refine((val) => val === true, 'AGB müssen akzeptiert werden')
-})
+  agb: z
+    .boolean()
+    .refine((val) => val === true, 'AGB müssen akzeptiert werden'),
+});
 
 const stepValidationFields = {
   0: ['firstname', 'lastname'],
   1: ['email', 'phone'],
   2: ['street', 'postcode', 'city', 'land'],
   3: ['reiseart'],
-  4: ['agb']
-}
+  4: ['agb'],
+};
 
 const MultiStepForm = ({ onClose }) => {
-  const [currentStep, setCurrentStep] = useState(0)
-  
+  const [currentStep, setCurrentStep] = useState(0);
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -65,90 +72,94 @@ const MultiStepForm = ({ onClose }) => {
       city: '',
       land: 'Deutschland',
       reiseart: 'Umra',
-      agb: false
+      agb: false,
     },
-    mode: 'onChange'
-  })
+    mode: 'onChange',
+  });
 
   const steps = [
-    <PersonalData key="personal" form={form} />,
-    <ContactInfo key="contact" form={form} />,
-    <AddressData key="address" form={form} />,
-    <TravelType key="travel" form={form} />,
-    <Completion key="completion" form={form} />
-  ]
+    <PersonalData key='personal' form={form} />,
+    <ContactInfo key='contact' form={form} />,
+    <AddressData key='address' form={form} />,
+    <TravelType key='travel' form={form} />,
+    <Completion key='completion' form={form} />,
+  ];
 
   const validateStep = async () => {
-    const fieldsToValidate = stepValidationFields[currentStep]
-    const result = await form.trigger(fieldsToValidate)
-    return result
-  }
+    const fieldsToValidate = stepValidationFields[currentStep];
+    const result = await form.trigger(fieldsToValidate);
+    return result;
+  };
 
   const nextStep = async () => {
-    const isValid = await validateStep()
+    const isValid = await validateStep();
     if (isValid && currentStep < steps.length - 1) {
-      setCurrentStep(prev => prev + 1)
+      setCurrentStep((prev) => prev + 1);
     } else {
-      form.trigger(stepValidationFields[currentStep])
+      form.trigger(stepValidationFields[currentStep]);
     }
-  }
+  };
 
   const prevStep = () => {
     if (currentStep > 0) {
-      setCurrentStep(prev => prev - 1)
+      setCurrentStep((prev) => prev - 1);
     }
-  }
+  };
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('https://hooks.zapier.com/hooks/catch/8057500/2kzxxip/', {
-        method: 'POST',
-        body: JSON.stringify(data),
-      })
+      const response = await fetch(
+        'https://hooks.zapier.com/hooks/catch/8057500/2kzxxip/',
+        {
+          method: 'POST',
+          body: JSON.stringify(data),
+        }
+      );
 
-      if (!response.ok) throw new Error()
+      if (!response.ok) throw new Error();
 
-      toast.success('Formular erfolgreich abgeschickt!')
-      onClose()
+      toast.success('Formular erfolgreich abgeschickt!');
+      onClose();
     } catch {
-      toast.error('Fehler beim Senden des Formulars')
+      toast.error('Fehler beim Senden des Formulars');
     }
-  }
+  };
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-2xl mx-auto">
+    <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className='w-full max-w-2xl mx-auto'
+    >
       <ProgressBar currentStep={currentStep} totalSteps={steps.length} />
-      
-      <div className="mt-8">
-        {steps[currentStep]}
-      </div>
 
-      <div className="flex justify-between mt-8">
+      <div className='mt-8'>{steps[currentStep]}</div>
+
+      <div className='flex justify-between mt-8'>
         {currentStep > 0 && (
           <button
-            type="button"
+            type='button'
             onClick={prevStep}
-            className="bg-gray-300 text-gray-700 py-3 px-6 rounded-lg shadow hover:bg-gray-400 text-lg"
+            className='bg-gray-300 text-gray-700 py-3 px-6 rounded-lg shadow hover:bg-gray-400 text-lg'
           >
             Zurück
           </button>
         )}
-        
+
         {currentStep < steps.length - 1 ? (
           <button
-            type="button"
+            type='button'
             onClick={nextStep}
-            className="bg-[#C6A866] text-white py-3 px-6 rounded-lg shadow hover:bg-[#B69856] text-lg ml-auto 
-                     disabled:opacity-50 disabled:cursor-not-allowed"
+            className='bg-[#C6A866] text-white py-3 px-6 rounded-lg shadow hover:bg-[#B69856] text-lg ml-auto 
+                     disabled:opacity-50 disabled:cursor-not-allowed'
             disabled={form.formState.isValidating}
           >
             Weiter
           </button>
         ) : (
           <button
-            type="submit"
-            className="bg-[#C6A866] text-white py-3 px-6 rounded-lg shadow hover:bg-[#B69856] text-lg ml-auto
-                     disabled:opacity-50 disabled:cursor-not-allowed"
+            type='submit'
+            className='bg-[#C6A866] text-white py-3 px-6 rounded-lg shadow hover:bg-[#B69856] text-lg ml-auto
+                     disabled:opacity-50 disabled:cursor-not-allowed'
             disabled={!form.formState.isValid || form.formState.isSubmitting}
           >
             Abschicken
@@ -156,11 +167,11 @@ const MultiStepForm = ({ onClose }) => {
         )}
       </div>
     </form>
-  )
-}
+  );
+};
 
 MultiStepForm.propTypes = {
-  onClose: PropTypes.func.isRequired
-}
+  onClose: PropTypes.func.isRequired,
+};
 
-export default MultiStepForm 
+export default MultiStepForm;
