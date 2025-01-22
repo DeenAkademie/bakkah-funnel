@@ -119,11 +119,11 @@ const Header = () => {
             </button>
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
-                <Button className='w-full mt-4 bg-[#C6A866] hover:bg-[#B69856]'>
+                <Button className='bg-[#C6A866] hover:bg-[#B69856] text-white px-8 py-6 rounded-full text-lg'>
                   Jetzt Anmelden
                 </Button>
               </DialogTrigger>
-              <DialogContent className='sm:max-w-[900px] w-full min-h-screen sm:min-h-[80vh] p-0'>
+              <DialogContent className='sm:max-w-[900px] w-full h-[90vh] sm:h-[80vh] p-0 overflow-hidden'>
                 <div className='h-full flex flex-col'>
                   <DialogHeader className='px-6 pt-6 sm:px-8 sm:pt-8'>
                     <DialogTitle className='text-2xl sm:text-3xl font-bold'>
