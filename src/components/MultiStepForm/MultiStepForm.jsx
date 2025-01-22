@@ -1,15 +1,15 @@
-import { useState } from '../../../$node_modules/@types/react/index.js';
-import { useForm } from '../../../$node_modules/react-hook-form/dist/index.js';
-import { zodResolver } from '../../../$node_modules/@hookform/resolvers/zod/dist/index.js';
-import * as z from '../../../$node_modules/zod/index.js';
-import { toast } from '../../../$node_modules/sonner/dist/index.js';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { toast } from 'sonner';
 import PersonalData from './steps/PersonalData';
 import ContactInfo from './steps/ContactInfo';
 import AddressData from './steps/AddressData';
 import TravelType from './steps/TravelType';
 import Completion from './steps/Completion';
 import ProgressBar from './ProgressBar';
-import PropTypes from '../../../$node_modules/@types/prop-types/index.js';
+import PropTypes from 'prop-types';
 
 const formSchema = z.object({
   firstname: z

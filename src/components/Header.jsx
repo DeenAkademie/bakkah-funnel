@@ -1,6 +1,8 @@
-import { useState } from '../../$node_modules/@types/react/index.js';
-import { Menu, X } from '../../$node_modules/lucide-react/dist/lucide-react.js';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+import MultiStepForm from '@/components/MultiStepForm/MultiStepForm';
 import {
   Dialog,
   DialogContent,
@@ -8,7 +10,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import MultiStepForm from '@/components/MultiStepForm/MultiStepForm';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

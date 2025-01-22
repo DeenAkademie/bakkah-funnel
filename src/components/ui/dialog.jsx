@@ -1,7 +1,7 @@
-import * as React from '../../../$node_modules/@types/react/index.js';
-import * as DialogPrimitive from '../../../$node_modules/@radix-ui/react-dialog/dist/index.d.mts';
-import { X } from '../../../$node_modules/lucide-react/dist/lucide-react.js';
-import { cn } from '@/lib/utils';
+import * as React from 'react';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
+import { X } from 'lucide-react';
+import { cn } from '../../lib/utils';
 
 const Dialog = DialogPrimitive.Root;
 

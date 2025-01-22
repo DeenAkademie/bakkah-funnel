@@ -1,4 +1,4 @@
-import { useState } from '../../$node_modules/@types/react/index.js';
+import { useState } from 'react';
 
 import MultiStepForm from './MultiStepForm/MultiStepForm';
 import { Button } from './ui/button';

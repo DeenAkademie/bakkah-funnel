@@ -1,13 +1,5 @@
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from '../../$node_modules/framer-motion/dist/index.js';
-import {
-  useRef,
-  useState,
-  useEffect,
-} from '../../$node_modules/@types/react/index.js';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 
 const AnimatedSection = () => {
   const containerRef = useRef(null);

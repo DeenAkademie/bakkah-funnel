@@ -1,8 +1,4 @@
-import {
-  Building2,
-  Users,
-  Hotel,
-} from '../../$node_modules/lucide-react/dist/lucide-react.js';
+import { Building2, Users, Hotel } from 'lucide-react';
 
 const CTA = () => {
   return (
