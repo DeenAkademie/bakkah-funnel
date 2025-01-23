@@ -1,19 +1,8 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
-import MultiStepForm from '@/components/MultiStepForm/MultiStepForm';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [open, setOpen] = useState(false);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -51,35 +40,12 @@ const Header = () => {
               Leistungen
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('about')}
               className='text-foreground/60 hover:text-foreground transition-colors'
             >
               Kontakt
             </button>
           </nav>
-
-          {/* CTA Button */}
-          <div className='hidden md:block'>
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <Button className='bg-[#C6A866] hover:bg-[#B69856] text-white px-8 py-6 rounded-full text-lg'>
-                  Jetzt Anmelden
-                </Button>
-              </DialogTrigger>
-              <DialogContent className='sm:max-w-[900px] w-full h-[90vh] sm:h-[80vh] p-0 overflow-hidden'>
-                <div className='h-full flex flex-col'>
-                  <DialogHeader className='px-6 pt-6 sm:px-8 sm:pt-8'>
-                    <DialogTitle className='text-2xl sm:text-3xl font-bold'>
-                      Anmeldeformular
-                    </DialogTitle>
-                  </DialogHeader>
-                  <div className='flex-1 overflow-y-auto px-6 py-4 sm:px-8'>
-                    <MultiStepForm onClose={() => setOpen(false)} />
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -117,25 +83,6 @@ const Header = () => {
             >
               Kontakt
             </button>
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <Button className='bg-[#C6A866] hover:bg-[#B69856] text-white px-8 py-6 rounded-full text-lg'>
-                  Jetzt Anmelden
-                </Button>
-              </DialogTrigger>
-              <DialogContent className='sm:max-w-[900px] w-full h-[90vh] sm:h-[80vh] p-0 overflow-hidden'>
-                <div className='h-full flex flex-col'>
-                  <DialogHeader className='px-6 pt-6 sm:px-8 sm:pt-8'>
-                    <DialogTitle className='text-2xl sm:text-3xl font-bold'>
-                      Anmeldeformular
-                    </DialogTitle>
-                  </DialogHeader>
-                  <div className='flex-1 overflow-y-auto px-6 py-4 sm:px-8'>
-                    <MultiStepForm onClose={() => setOpen(false)} />
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
           </div>
         </div>
       )}

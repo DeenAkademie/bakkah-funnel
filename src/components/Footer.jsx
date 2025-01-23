@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className='bg-[#F5F5F0] py-16'>
+    <footer id='about' className='bg-[#F5F5F0] py-16'>
       <div className='container mx-auto px-4'>
         <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
           {/* Logo & Beschreibung */}
@@ -23,7 +23,10 @@ const Footer = () => {
             <h4 className='text-lg font-semibold'>Quick Links</h4>
             <ul className='space-y-2'>
               <li>
-                <a href='#about' className='text-gray-600 hover:text-primary'>
+                <a
+                  href='#services'
+                  className='text-gray-600 hover:text-primary'
+                >
                   Über uns
                 </a>
               </li>
@@ -36,7 +39,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href='#contact' className='text-gray-600 hover:text-primary'>
+                <a href='#about' className='text-gray-600 hover:text-primary'>
                   Kontakt
                 </a>
               </li>
