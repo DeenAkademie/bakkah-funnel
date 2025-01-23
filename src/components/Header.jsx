@@ -78,7 +78,7 @@ const Header = () => {
               Leistungen
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('about')}
               className='block w-full text-left px-3 py-2 rounded-md text-base hover:bg-accent'
             >
               Kontakt
