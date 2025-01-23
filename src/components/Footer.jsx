@@ -60,9 +60,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                Tel:{' '}
+                WhatsApp:{' '}
                 <a
-                  href='tel:+491632087738'
+                  href='https://wa.me/491632087738'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='font-bold hover:text-[#C6A866] transition-colors'
                 >
                   +49 163 208 7738
