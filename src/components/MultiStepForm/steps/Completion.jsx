@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
+import { Square, CheckSquare } from 'lucide-react';
 
 const Completion = ({ form }) => {
   const {
     register,
+    watch,
     formState: { errors },
   } = form;
+
+  const isChecked = watch('agb');
 
   return (
     <div>
@@ -21,24 +25,12 @@ const Completion = ({ form }) => {
               id='agb'
               className='sr-only peer'
             />
-            <div
-              className='w-6 h-6 border-2 border-gray-300 rounded-lg 
-                         peer-checked:bg-[#C6A866] peer-checked:border-[#C6A866] 
-                         group-hover:border-[#C6A866]
-                         flex items-center justify-center transition-colors'
-            >
-              <svg
-                className='w-4 h-4 text-white hidden peer-checked:block'
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 20 20'
-                fill='currentColor'
-              >
-                <path
-                  fillRule='evenodd'
-                  d='M16.707 5.293a1 1 0 01.083 1.32l-.083.094L8.707 14.707a1 1 0 01-1.32.083l-.094-.083-4-4a1 1 0 011.32-1.497l.094.083L8 12.584l7.293-7.293a1 1 0 011.414 0z'
-                  clipRule='evenodd'
-                />
-              </svg>
+            <div className='flex items-center justify-center transition-all text-[#C6A866] hover:text-[#B69856]'>
+              {isChecked ? (
+                <CheckSquare className='w-6 h-6' strokeWidth={1.5} />
+              ) : (
+                <Square className='w-6 h-6' strokeWidth={1.5} />
+              )}
             </div>
           </div>
           <span className='text-lg'>
@@ -73,6 +65,7 @@ const Completion = ({ form }) => {
 Completion.propTypes = {
   form: PropTypes.shape({
     register: PropTypes.func.isRequired,
+    watch: PropTypes.func.isRequired,
     formState: PropTypes.shape({
       errors: PropTypes.shape({
         agb: PropTypes.shape({
