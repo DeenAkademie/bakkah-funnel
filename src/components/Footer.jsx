@@ -50,9 +50,33 @@ const Footer = () => {
           <div className='space-y-4'>
             <h4 className='text-lg font-semibold'>Kontakt</h4>
             <ul className='space-y-2 text-gray-600'>
-              <li>Email: info@bakkah-reisen.de</li>
-              <li>Tel: +49 123 456 789</li>
-              <li>Adresse: Musterstraße 123, 12345 Stadt</li>
+              <li>
+                Email:{' '}
+                <a
+                  href='mailto:info@bakkah-reisen.de'
+                  className='font-bold hover:text-[#C6A866] transition-colors'
+                >
+                  info@bakkah-reisen.de
+                </a>
+              </li>
+              <li>
+                Tel:{' '}
+                <a
+                  href='tel:+491632087738'
+                  className='font-bold hover:text-[#C6A866] transition-colors'
+                >
+                  +49 163 208 7738
+                </a>
+              </li>
+              <li>
+                Folge uns auf:{' '}
+                <a
+                  href='https://www.instagram.com/bakkah_reisen_official/'
+                  className='font-bold hover:text-[#C6A866] transition-colors'
+                >
+                  bakkah_reisen_official
+                </a>
+              </li>
             </ul>
           </div>
         </div>

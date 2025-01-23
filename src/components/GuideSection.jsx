@@ -1,10 +1,16 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import MultiStepForm from '@/components/MultiStepForm/MultiStepForm'
-import { Button } from "./ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import MultiStepForm from '@/components/MultiStepForm/MultiStepForm';
+import { Button } from './ui/button';
 import { useState } from 'react';
 
 const GuideSection = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <section className='py-24 bg-white'>
@@ -16,7 +22,7 @@ const GuideSection = () => {
               <div className='w-full md:w-1/3'>
                 <div className='aspect-[3/4] w-[280px] mx-auto rounded-2xl overflow-hidden'>
                   <img
-                    src='/guide-image.png'
+                    src='/guide-image.webp'
                     alt='Reiseführer'
                     className='w-full h-full object-cover'
                   />
@@ -25,12 +31,12 @@ const GuideSection = () => {
 
               {/* Text Content */}
               <div className='w-full md:w-2/3 space-y-6'>
-                <h2 className='text-4xl md:text-5xl font-bold'>Marcel Krass</h2>
+                <h2 className='text-4xl md:text-5xl font-bold'>Abul Baraa</h2>
                 <h3 className='text-xl md:text-2xl text-gray-700'>
                   Reiseführer für Hadsch und Umra Reisen
                 </h3>
                 <p className='text-gray-600 text-lg leading-relaxed'>
-                  Marcel Krass ist ein erfahrener Reiseführer mit umfassendem
+                  Abul Baraa ist ein erfahrener Reiseführer mit umfassendem
                   Wissen über historische und spirituelle Stätten. Er hat
                   zahlreiche Pilgerreisen geleitet und ist bekannt für seine
                   engagierte und persönliche Betreuung.
@@ -63,6 +69,6 @@ const GuideSection = () => {
       </div>
     </section>
   );
-}
+};
 
-export default GuideSection 
+export default GuideSection;
