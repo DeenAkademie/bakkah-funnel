@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,13 +18,13 @@ const Header = () => {
       <div className='container mx-auto px-4'>
         <div className='flex items-center justify-between h-16'>
           {/* Logo */}
-          <div className='flex-shrink-0 cursor-pointer'>
+          <Link to='/' className='flex-shrink-0'>
             <img
               src='/bakkah-logo.svg'
               alt='Hadsch & Umra Logo'
-              className='h-8 w-auto'
+              className='h-8 w-auto cursor-pointer'
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className='hidden md:flex items-center justify-center space-x-8'>

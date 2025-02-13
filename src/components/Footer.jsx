@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -96,6 +97,21 @@ const Footer = () => {
           <p className='text-center text-gray-600'>
             © {new Date().getFullYear()} Bakkah Reisen. Alle Rechte vorbehalten.
           </p>
+        </div>
+
+        <div className='footer-links'>
+          <Link
+            to='/impressum'
+            className='mr-4 text-gray-600 hover:text-[#C6A866]'
+          >
+            Impressum
+          </Link>
+          <Link
+            to='/datenschutz'
+            className='text-gray-600 hover:text-[#C6A866]'
+          >
+            Datenschutz
+          </Link>
         </div>
       </div>
     </footer>
