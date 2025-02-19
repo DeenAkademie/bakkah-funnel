@@ -13,14 +13,14 @@ const guides = [
   {
     name: 'Abul Baraa',
     shortName: 'AB',
-    image: '/public/guide1.webp',
+    image: '/guide1.webp',
     description:
       'Abul Baraa ist ein erfahrener Reiseführer mit umfassendem Wissen über historische und spirituelle Stätten. Er hat zahlreiche Pilgerreisen geleitet und ist bekannt für seine engagierte und persönliche Betreuung.',
   },
   {
     name: 'Abu Hamza',
     shortName: 'AH',
-    image: '/public/guide2.jpeg',
+    image: '/guide2.jpeg',
     description:
       'Abu Hamza ist ein erfahrener Reiseführer mit umfassendem Wissen über historische und spirituelle Stätten. Er hat zahlreiche Pilgerreisen geleitet und ist bekannt für seine engagierte und persönliche Betreuung.',
   },
